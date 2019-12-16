@@ -1,0 +1,45 @@
+<div class="container" style="text-align:center">
+    <div class="row sticky-top">
+  <div class="col-auto mr-auto"> </div>
+  <div class="col-auto">
+         <a class="btn btn-warning" (click)="goBackToPreviousPage()">Go Back </a>
+      </div>
+</div>
+<div class="row" style="text-align:center" *ngIf="oneCont.length>0">
+  <div *ngFor="let cont of oneCont" class="card mb-3" >
+   
+  <img class="card-img-top" [attr.src]="cont.flag" style="height:20rem">
+  <div class="card-body">
+    <h5 class="card-title">{{cont.name}}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+   <li class="list-group-item">Capital:{{cont.capital}}</li>
+    <li class="list-group-item">Region: {{cont.region}}</li>
+    <li class="list-group-item">Population: {{cont.population}}</li>
+    <li class="list-group-item">subregion:{{cont.subregion}}</li>
+    <li class="list-group-item">demonym: {{cont.demonym}}</li>
+    <li class="list-group-item">nativeName: {{cont.nativeName}}</li>
+    <li class="list-group-item">area:{{cont.area}}</li>
+    <li class="list-group-item">gini: {{cont.gini}}</li>
+  </ul>
+  <div class="card-body">
+
+     <ul class="list-group list-group-flush">
+    <li class="list-group-item"><a class="card-link font-weight-bold card-link">Languages : 
+    <div *ngFor="let lang of cont.languages" >
+        <a [routerLink]="['parm/2/language/',lang.iso639_1]" class="card-link">{{lang.name}}</a>
+    </div></a></li>
+    <li class="list-group-item"><a class="card-link font-weight-bold card-link">Currencies : 
+    <div *ngFor="let cur of cont.currencies" >
+        <a [routerLink]="['parm/3/currency/',cur.code]" class="card-link">{{cur.name}}</a>
+    </div></a></li>
+   
+  </ul>
+  
+     
+    <a href="#" class="btn btn-primary" [routerLink]="['']">Home</a>
+  </div>
+</div>
+
+</div>
+</div>

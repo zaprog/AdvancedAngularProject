@@ -1,0 +1,33 @@
+<div class="container" style="text-align:center">
+    <div class="row sticky-top">
+  <div class="col-auto mr-auto"> </div>
+  <div class="col-auto">
+         <a class="btn btn-warning" (click)="goBackToPreviousPage()">Go Back </a>
+      </div>
+</div>
+        
+      <div class="row" style="text-align:center">
+<div class="row" style="text-align:center" *ngIf="allCountries.length>0">
+ 
+  <div *ngFor="let cont of allCountries" class="col-md-4" >
+
+    <div class="card mt-2 mb-1" style="width: 18rem; height:35rem">
+  <img class="card-img-top" [attr.src]="cont.flag" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{cont.name}}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+   <li class="list-group-item">Capital:{{cont.capital}}</li>
+    <li class="list-group-item">Region: {{cont.region}}</li>
+    <li class="list-group-item">Population: {{cont.population}}</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="btn btn-primary" [routerLink]="['/name/',cont.name]">View Country</a>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
